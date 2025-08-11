@@ -105,10 +105,10 @@ const Home = () => {
                             transition: "background-color 0.2s ease",
                         }}
                         onMouseEnter={(e) => {
-                            e.target.style.backgroundColor = "#7a91b0";
+                            e.currentTarget.style.backgroundColor = "#7a91b0";
                         }}
                         onMouseLeave={(e) => {
-                            e.target.style.backgroundColor = "#9fb7d2";
+                            e.currentTarget.style.backgroundColor = "#9fb7d2";
                         }}
                     >
                         <span className="nerd-emoji"></span>
@@ -132,10 +132,10 @@ const Home = () => {
                             transition: "background-color 0.2s ease",
                         }}
                         onMouseEnter={(e) => {
-                            e.target.style.backgroundColor = "#7a91b0";
+                            e.currentTarget.style.backgroundColor = "#7a91b0";
                         }}
                         onMouseLeave={(e) => {
-                            e.target.style.backgroundColor = "#9fb7d2";
+                            e.currentTarget.style.backgroundColor = "#9fb7d2";
                         }}
                     >
                         <span className="nerd-emoji"></span>
@@ -159,10 +159,10 @@ const Home = () => {
                             transition: "background-color 0.2s ease",
                         }}
                         onMouseEnter={(e) => {
-                            e.target.style.backgroundColor = "#7a91b0";
+                            e.currentTarget.style.backgroundColor = "#7a91b0";
                         }}
                         onMouseLeave={(e) => {
-                            e.target.style.backgroundColor = "#9fb7d2";
+                            e.currentTarget.style.backgroundColor = "#9fb7d2";
                         }}
                     >
                         <span className="nerd-emoji"></span>

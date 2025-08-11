@@ -12,33 +12,20 @@ const Navigation = () => {
     ];
 
     return (
-        <nav
-            style={{
-                padding: "1rem 2rem",
-                borderBottom: "1px solid #7a91b0",
-            }}
-        >
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: "2rem",
-                    flexWrap: "wrap",
-                }}
-            >
+        <nav className="nav-container">
+            <div className="nav-items">
                 {navItems.map((item) => (
                     <Link
                         key={item.path}
                         to={item.path}
+                        className={
+                            location.pathname === item.path ? "active" : ""
+                        }
                         style={{
                             color: "#f8f8ff",
                             textDecoration: "none",
                             padding: "0.5rem 1rem",
                             borderRadius: "8px",
-                            backgroundColor:
-                                location.pathname === item.path
-                                    ? "#829cba"
-                                    : "transparent",
                             transition: "background-color 0.2s ease",
                             fontSize: "1.3rem",
                             fontWeight:
@@ -47,10 +34,11 @@ const Navigation = () => {
                                     : "normal",
                         }}
                         onMouseEnter={(e) => {
-                            e.target.style.backgroundColor = "#7a91b0";
+                            e.currentTarget.style.backgroundColor = "#7a91b0";
                         }}
                         onMouseLeave={(e) => {
-                            e.target.style.backgroundColor = "transparent";
+                            e.currentTarget.style.backgroundColor =
+                                "transparent";
                         }}
                     >
                         {item.label}

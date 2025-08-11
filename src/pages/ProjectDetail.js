@@ -147,6 +147,17 @@ const ProjectDetail = () => {
                     >
                         {project.date}
                     </span>
+                    {project.githubStars && (
+                        <span
+                            style={{
+                                color: "#f8f8ff",
+                                opacity: 0.8,
+                            }}
+                        >
+                            <span className="nerd-emoji"></span>{" "}
+                            {project.githubStars} stars
+                        </span>
+                    )}
                     {project.demoUrl && (
                         <a
                             href={project.demoUrl}
