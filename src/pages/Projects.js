@@ -74,7 +74,7 @@ const Projects = () => {
                                 {categoryProjects.map((project) => (
                                     <Link
                                         key={project.id}
-                                        to={`/projects/${project.id}`}
+                                        to={`/projects/${project.slug}`}
                                         style={{ textDecoration: "none" }}
                                     >
                                         <div
@@ -136,7 +136,8 @@ const Projects = () => {
                                                                 "center";
                                                             e.target.style.fontSize =
                                                                 "2rem";
-                                                            e.target.innerHTML = "";
+                                                            e.target.innerHTML =
+                                                                "";
                                                         }}
                                                     />
                                                 )}

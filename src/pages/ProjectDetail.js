@@ -71,8 +71,8 @@ const renderFormattedText = (text) => {
 };
 
 const ProjectDetail = () => {
-    const { id } = useParams();
-    const project = projects.find((p) => p.id === parseInt(id));
+    const { slug } = useParams();
+    const project = projects.find((p) => p.slug === slug);
 
     // Scroll to top when component mounts
     useEffect(() => {

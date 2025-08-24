@@ -19,6 +19,7 @@ export const projectCategories = {
 export const projects = [
     {
         id: 1,
+        slug: "distributed-p2p-pytest-runner",
         title: "Distributed P2P Pytest Runner",
         category: "projects",
         description:
@@ -50,6 +51,7 @@ export const projects = [
     },
     {
         id: 2,
+        slug: "image-manipulation-languages",
         title: "Image Manipulation Languages",
         category: "projects",
         description:
@@ -81,6 +83,7 @@ export const projects = [
     },
     {
         id: 3,
+        slug: "bashback",
         title: "bashback",
         category: "projects",
         description: "Simpler rsync in Bash",
@@ -112,6 +115,7 @@ export const projects = [
     },
     {
         id: 4,
+        slug: "templeos-pywal-colors",
         title: "TempleOS Pywal Colors",
         category: "side-projects",
         description: "Pywal for TempleOs",
@@ -120,19 +124,13 @@ export const projects = [
                 text: "A Python script that generates a Theme.HC (HolyC) file, based on the generated pywal colors, that can be used in TempleOS, so that it matches your desktop's colors/aesthetics. The usage is all in explained in the README.md file.",
             },
             {
-                text: "",
-            },
-            {
                 text: "(Psst, it got a lot of love from the r/unixporn community - [post with 125k views](https://www.reddit.com/r/unixporn/comments/1m0mk2o/templeos_pywal_colors_on_the_temple/))",
             },
         ],
         features: [
-            "Lightning-fast task creation and editing",
-            "Category-based organization",
-            "Due date reminders",
-            "Progress tracking and statistics",
-            "Dark/light theme support",
-            "Offline functionality",
+            "Automatic Color Scheme Generation",
+            "Dark and Light themes",
+            "Automatic color loading process",
         ],
         stack: ["Bash", "HolyC", "Python"],
         date: "2025",
@@ -141,20 +139,28 @@ export const projects = [
         githubUrl: "https://github.com/duartebranco/TempleOs-pywal-colors",
     },
     {
-        id: 3,
+        id: 5,
+        slug: "dracula-palette-converter",
         title: "Dracula Palette Converter",
         category: "side-projects",
         description: "Convert images to Dracula's color scheme",
-        fullDescription:
-            "ColorPalette Generator is a sophisticated tool that leverages color theory algorithms to create beautiful, accessible color palettes. The application analyzes color relationships, ensures proper contrast ratios for accessibility compliance, and provides export options for various design tools. Whether you're designing a website, creating brand guidelines, or working on digital art, this tool helps you find the perfect color combinations while maintaining visual harmony and usability standards.",
-        features: [
-            "AI-powered color harmony analysis",
-            "WCAG accessibility compliance checking",
-            "Export to multiple formats (CSS, Sketch, Figma)",
-            "Real-time preview modes",
-            "Color blindness simulation",
-            "Palette history and favorites",
+        fullDescription: [
+            {
+                text: "The Dracula Palette Converter is a web application that allows users to upload their favorite images/wallpapers and transform them to match the iconic Dracula theme.",
+            },
+            {
+                text: "This tool first converts the image to Grayscale and then colorizes each black, white and mid colored pixel to the respective color of Dracula's palette, making your images consistent with the Dracula theme.",
+            },
+            {
+                text: "Made for Hack Club's High Seas !!",
+            },
         ],
+        features: [
+            "Palette Conversion",
+            "Multi-Format Support",
+            "User-Friendly Interface",
+        ],
+        stack: ["HTML", "CSS", "JavaScript"],
         date: "2024",
         githubStars: 3,
         image: "/images/projects/3.png",
@@ -162,21 +168,28 @@ export const projects = [
         githubUrl: "https://github.com/duartebranco/DraculaPaletteConverter",
     },
     {
-        id: 5,
+        id: 6,
+        slug: "dijkstra-algorithm-shortest-paths",
         title: "Dijkstra's Algorithm for Shortest Paths",
         category: "side-projects",
         description:
             " Dijkstra's algorithm to find the shortest path between nodes in a graph on the TI-84 graphing calculator",
-        fullDescription:
-            "ColorPalette Generator is a sophisticated tool that leverages color theory algorithms to create beautiful, accessible color palettes. The application analyzes color relationships, ensures proper contrast ratios for accessibility compliance, and provides export options for various design tools. Whether you're designing a website, creating brand guidelines, or working on digital art, this tool helps you find the perfect color combinations while maintaining visual harmony and usability standards.",
-        features: [
-            "AI-powered color harmony analysis",
-            "WCAG accessibility compliance checking",
-            "Export to multiple formats (CSS, Sketch, Figma)",
-            "Real-time preview modes",
-            "Color blindness simulation",
-            "Palette history and favorites",
+        fullDescription: [
+            {
+                text: "This program implements Dijkstra's algorithm to find the shortest path between nodes in a graph on the TI-84+ CE graphing calculator using Python.",
+            },
+            {
+                text: "It allows users to input the number of nodes and the weights between pairs of nodes, and then calculates the shortest path and distance between a specified source and destination node. The program handles up to 26 nodes and infinite weights are denoted by 'i'.",
+            },
+            {
+                text: "It got over a 1000 downloads on cemetech.net (please view demo).",
+            },
         ],
+        features: [
+            "Dijkstra’s Algorithm Implementation",
+            "Made for TI-84+ CE calculates",
+        ],
+        stack: ["Python"],
         date: "2024",
         image: "/images/projects/5.png",
         demoUrl: "https://www.cemetech.net/downloads/files/2495/x3081",
@@ -184,27 +197,35 @@ export const projects = [
             "https://github.com/duartebranco/Dijkstra-s-Algorithm-for-Shortest-Paths",
     },
     {
-        id: 6,
+        id: 7,
+        slug: "remember-the-position",
         title: "Remember The Position",
         category: "side-projects",
         description: "Game to remember the position of the chess board",
-        fullDescription:
-            "ColorPalette Generator is a sophisticated tool that leverages color theory algorithms to create beautiful, accessible color palettes. The application analyzes color relationships, ensures proper contrast ratios for accessibility compliance, and provides export options for various design tools. Whether you're designing a website, creating brand guidelines, or working on digital art, this tool helps you find the perfect color combinations while maintaining visual harmony and usability standards.",
-        features: [
-            "AI-powered color harmony analysis",
-            "WCAG accessibility compliance checking",
-            "Export to multiple formats (CSS, Sketch, Figma)",
-            "Real-time preview modes",
-            "Color blindness simulation",
-            "Palette history and favorites",
+        fullDescription: [
+            {
+                text: "This is a challenge of remembering the exact position of the chess pieces in midlegames/endgames after having 10 seconds to memorize them.",
+            },
+            {
+                text: "I was inspired to do this after coming across some studies that reached the conclusion that masters can recall more pieces than a beginner if it's a typical, possible and legal position.",
+            },
+            {
+                text: "It was one of my first projects, and it got more than 400 users and was played by people from more than 40 countries.",
+            },
         ],
-        date: "2024",
+        features: [
+            "Uses a list of pgn chess games to generate random positions",
+            "Cross-Platform",
+        ],
+        stack: ["HTML", "CSS", "JavaScript", "jQuery"],
+        date: "2023",
         image: "/images/projects/6.png",
         demoUrl: "https://duartebranco.github.io/RememberThePosition",
         githubUrl: "https://github.com/duartebranco/RememberThePosition",
     },
     {
-        id: 7,
+        id: 8,
+        slug: "kobofileserver",
         title: "kobofileserver",
         category: "open-source",
         description:
@@ -223,7 +244,8 @@ export const projects = [
         githubUrl: "https://github.com/tylpk1216/kobofileserver",
     },
     {
-        id: 8,
+        id: 9,
+        slug: "zed-wal-theme",
         title: "Zed Wal Theme",
         category: "open-source",
         description:
