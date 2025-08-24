@@ -96,7 +96,7 @@ const Home = () => {
                             fontSize: "2rem",
                             padding: "1rem",
                             borderRadius: "50%",
-                            backgroundColor: "#9fb7d2",
+                            backgroundColor: "#6b8fb2",
                             display: "inline-flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -108,7 +108,7 @@ const Home = () => {
                             e.currentTarget.style.backgroundColor = "#7a91b0";
                         }}
                         onMouseLeave={(e) => {
-                            e.currentTarget.style.backgroundColor = "#9fb7d2";
+                            e.currentTarget.style.backgroundColor = "#6b8fb2";
                         }}
                     >
                         <span className="nerd-emoji"></span>
@@ -123,7 +123,7 @@ const Home = () => {
                             fontSize: "2rem",
                             padding: "1rem",
                             borderRadius: "50%",
-                            backgroundColor: "#9fb7d2",
+                            backgroundColor: "#6b8fb2",
                             display: "inline-flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -135,7 +135,7 @@ const Home = () => {
                             e.currentTarget.style.backgroundColor = "#7a91b0";
                         }}
                         onMouseLeave={(e) => {
-                            e.currentTarget.style.backgroundColor = "#9fb7d2";
+                            e.currentTarget.style.backgroundColor = "#6b8fb2";
                         }}
                     >
                         <span className="nerd-emoji"></span>
@@ -150,7 +150,7 @@ const Home = () => {
                             fontSize: "2rem",
                             padding: "1rem",
                             borderRadius: "50%",
-                            backgroundColor: "#9fb7d2",
+                            backgroundColor: "#6b8fb2",
                             display: "inline-flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -162,7 +162,7 @@ const Home = () => {
                             e.currentTarget.style.backgroundColor = "#7a91b0";
                         }}
                         onMouseLeave={(e) => {
-                            e.currentTarget.style.backgroundColor = "#9fb7d2";
+                            e.currentTarget.style.backgroundColor = "#6b8fb2";
                         }}
                     >
                         <span className="nerd-emoji"></span>

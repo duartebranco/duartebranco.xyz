@@ -15,7 +15,7 @@ const About = () => {
             </h1>
             <div
                 style={{
-                    backgroundColor: "#9fb7d2",
+                    backgroundColor: "#6b8fb2",
                     padding: "3rem",
                     borderRadius: "16px",
                     boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
@@ -24,7 +24,7 @@ const About = () => {
                 <div
                     style={{
                         fontSize: "1.2rem",
-                        lineHeight: "1.8",
+                        lineHeight: "1.6",
                         color: "#f8f8ff",
                         textAlign: "left",
                     }}
@@ -56,7 +56,7 @@ const About = () => {
 
                     <div
                         style={{
-                            backgroundColor: "#829cba",
+                            backgroundColor: "#5d7fa3",
                             padding: "1.5rem",
                             borderRadius: "12px",
                             marginTop: "2rem",

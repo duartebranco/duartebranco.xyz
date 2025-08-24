@@ -50,7 +50,7 @@ const Art = () => {
                         >
                             <div
                                 style={{
-                                    backgroundColor: "#9fb7d2",
+                                    backgroundColor: "#6b8fb2",
                                     borderRadius: "16px",
                                     overflow: "hidden",
                                     boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
@@ -80,7 +80,7 @@ const Art = () => {
                                             width: "100%",
                                             height: "250px",
                                             objectFit: "cover",
-                                            backgroundColor: "#829cba",
+                                            backgroundColor: "#5d7fa3",
                                         }}
                                         className={
                                             artwork.isNSFW &&
@@ -90,7 +90,7 @@ const Art = () => {
                                         }
                                         onError={(e) => {
                                             e.target.style.backgroundColor =
-                                                "#829cba";
+                                                "#5d7fa3";
                                             e.target.style.color = "#f8f8ff";
                                             e.target.style.display = "flex";
                                             e.target.style.alignItems =

@@ -45,7 +45,7 @@ const Projects = () => {
                                         fontSize: "2rem",
                                         margin: "0 0 0.5rem 0",
                                         color: "#f8f8ff",
-                                        borderBottom: "2px solid #9fb7d2",
+                                        borderBottom: "2px solid #6b8fb2",
                                         paddingBottom: "0.5rem",
                                     }}
                                 >
@@ -55,7 +55,7 @@ const Projects = () => {
                                     style={{
                                         color: "#f8f8ff",
                                         opacity: 0.8,
-                                        fontSize: "1.1rem",
+                                        fontSize: "1.4rem",
                                         margin: "0",
                                     }}
                                 >
@@ -79,7 +79,7 @@ const Projects = () => {
                                     >
                                         <div
                                             style={{
-                                                backgroundColor: "#9fb7d2",
+                                                backgroundColor: "#6b8fb2",
                                                 padding: "2rem",
                                                 borderRadius: "16px",
                                                 boxShadow:
@@ -107,36 +107,39 @@ const Projects = () => {
                                                     gap: "2rem",
                                                     alignItems: "flex-start",
                                                 }}
+                                                className="project-card-content"
                                             >
                                                 {/* Project Image */}
-                                                <img
-                                                    src={project.image}
-                                                    alt={project.title}
-                                                    style={{
-                                                        width: "120px",
-                                                        height: "80px",
-                                                        objectFit: "cover",
-                                                        borderRadius: "8px",
-                                                        backgroundColor:
-                                                            "#829cba",
-                                                        flexShrink: 0,
-                                                    }}
-                                                    onError={(e) => {
-                                                        e.target.style.backgroundColor =
-                                                            "#829cba";
-                                                        e.target.style.color =
-                                                            "#f8f8ff";
-                                                        e.target.style.display =
-                                                            "flex";
-                                                        e.target.style.alignItems =
-                                                            "center";
-                                                        e.target.style.justifyContent =
-                                                            "center";
-                                                        e.target.style.fontSize =
-                                                            "2rem";
-                                                        e.target.innerHTML = "";
-                                                    }}
-                                                />
+                                                {project.image && (
+                                                    <img
+                                                        src={project.image}
+                                                        alt={project.title}
+                                                        style={{
+                                                            width: "120px",
+                                                            height: "80px",
+                                                            objectFit: "cover",
+                                                            borderRadius: "8px",
+                                                            backgroundColor:
+                                                                "#5d7fa3",
+                                                            flexShrink: 0,
+                                                        }}
+                                                        onError={(e) => {
+                                                            e.target.style.backgroundColor =
+                                                                "#5d7fa3";
+                                                            e.target.style.color =
+                                                                "#f8f8ff";
+                                                            e.target.style.display =
+                                                                "flex";
+                                                            e.target.style.alignItems =
+                                                                "center";
+                                                            e.target.style.justifyContent =
+                                                                "center";
+                                                            e.target.style.fontSize =
+                                                                "2rem";
+                                                            e.target.innerHTML = "";
+                                                        }}
+                                                    />
+                                                )}
 
                                                 {/* Project Info */}
                                                 <div style={{ flex: 1 }}>
@@ -155,7 +158,7 @@ const Projects = () => {
                                                             margin: "0 0 1rem 0",
                                                             color: "#f8f8ff",
                                                             opacity: 0.9,
-                                                            fontSize: "1rem",
+                                                            fontSize: "1.3rem",
                                                             lineHeight: "1.6",
                                                         }}
                                                     >
@@ -168,14 +171,13 @@ const Projects = () => {
                                                             alignItems:
                                                                 "center",
                                                             gap: "2rem",
+                                                            fontSize: "1.2rem",
                                                         }}
                                                     >
                                                         <span
                                                             style={{
                                                                 color: "#f8f8ff",
                                                                 opacity: 0.8,
-                                                                fontSize:
-                                                                    "0.9rem",
                                                             }}
                                                         >
                                                             {project.date}
@@ -185,8 +187,6 @@ const Projects = () => {
                                                                 style={{
                                                                     color: "#f8f8ff",
                                                                     opacity: 0.8,
-                                                                    fontSize:
-                                                                        "0.9rem",
                                                                 }}
                                                             >
                                                                 <span className="nerd-emoji">

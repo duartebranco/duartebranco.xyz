@@ -42,7 +42,7 @@ const ArtDetail = () => {
                     textDecoration: "none",
                     marginBottom: "2rem",
                     padding: "0.5rem 1rem",
-                    backgroundColor: "#9fb7d2",
+                    backgroundColor: "#6b8fb2",
                     borderRadius: "8px",
                     fontSize: "1rem",
                 }}
@@ -52,7 +52,7 @@ const ArtDetail = () => {
 
             <div
                 style={{
-                    backgroundColor: "#9fb7d2",
+                    backgroundColor: "#6b8fb2",
                     padding: "3rem",
                     borderRadius: "16px",
                     boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
@@ -68,13 +68,13 @@ const ArtDetail = () => {
                             height: "auto",
                             objectFit: "unset",
                             borderRadius: "12px",
-                            backgroundColor: "#829cba",
+                            backgroundColor: "#5d7fa3",
                         }}
                         className={
                             artwork.isNSFW && !isRevealed ? "nsfw-blur" : ""
                         }
                         onError={(e) => {
-                            e.target.style.backgroundColor = "#829cba";
+                            e.target.style.backgroundColor = "#5d7fa3";
                             e.target.style.color = "#f8f8ff";
                             e.target.style.display = "flex";
                             e.target.style.alignItems = "center";
@@ -135,7 +135,7 @@ const ArtDetail = () => {
                 <p
                     style={{
                         fontSize: "1.2rem",
-                        lineHeight: "1.8",
+                        lineHeight: "1.6",
                         color: "#f8f8ff",
                         marginBottom: "2rem",
                     }}
