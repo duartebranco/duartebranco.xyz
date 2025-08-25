@@ -1,11 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { artworks } from "../data/artworks";
 
+// Helper function to check localStorage for reveal state
+const NSFW_REVEAL_KEY = "artworkNSFWRevealState";
+
+const isRevealedInStorage = (artworkId) => {
+    try {
+        const stored = localStorage.getItem(NSFW_REVEAL_KEY);
+        if (stored) {
+            const revealed = JSON.parse(stored);
+            return revealed.includes(artworkId);
+        }
+    } catch (error) {
+        console.warn(
+            "Failed to load NSFW reveal state from localStorage:",
+            error,
+        );
+    }
+    return false;
+};
+
+const saveRevealStateToStorage = (artworkId, isRevealed) => {
+    try {
+        const stored = localStorage.getItem(NSFW_REVEAL_KEY);
+        let revealed = stored ? JSON.parse(stored) : [];
+
+        if (isRevealed && !revealed.includes(artworkId)) {
+            revealed.push(artworkId);
+        } else if (!isRevealed && revealed.includes(artworkId)) {
+            revealed = revealed.filter((id) => id !== artworkId);
+        }
+
+        localStorage.setItem(NSFW_REVEAL_KEY, JSON.stringify(revealed));
+    } catch (error) {
+        console.warn(
+            "Failed to save NSFW reveal state to localStorage:",
+            error,
+        );
+    }
+};
+
 const ArtDetail = () => {
-    const { id } = useParams();
-    const artwork = artworks.find((a) => a.id === parseInt(id));
-    const [isRevealed, setIsRevealed] = useState(!artwork?.isNSFW);
+    const { slug } = useParams();
+    const artwork = artworks.find((a) => a.slug === slug);
+
+    // Initialize reveal state from localStorage if NSFW, or true if not NSFW
+    const [isRevealed, setIsRevealed] = useState(() => {
+        if (!artwork?.isNSFW) return true;
+        return isRevealedInStorage(artwork.id);
+    });
+
+    // Update reveal state and save to localStorage
+    const toggleReveal = () => {
+        const newRevealState = !isRevealed;
+        setIsRevealed(newRevealState);
+        if (artwork) {
+            saveRevealStateToStorage(artwork.id, newRevealState);
+        }
+    };
+
+    // Scroll to top when component mounts
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     if (!artwork) {
         return (
@@ -87,7 +145,7 @@ const ArtDetail = () => {
                     {/* NSFW Toggle */}
                     {artwork.isNSFW && (
                         <button
-                            onClick={() => setIsRevealed(!isRevealed)}
+                            onClick={toggleReveal}
                             style={{
                                 position: "absolute",
                                 top: "1rem",

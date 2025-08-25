@@ -2,8 +2,40 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { artworks } from "../data/artworks";
 
+// Helper functions for localStorage
+const NSFW_REVEAL_KEY = "artworkNSFWRevealState";
+
+const loadRevealedFromStorage = () => {
+    try {
+        const stored = localStorage.getItem(NSFW_REVEAL_KEY);
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            return new Set(parsed);
+        }
+    } catch (error) {
+        console.warn(
+            "Failed to load NSFW reveal state from localStorage:",
+            error,
+        );
+    }
+    return new Set();
+};
+
+const saveRevealedToStorage = (revealedSet) => {
+    try {
+        localStorage.setItem(NSFW_REVEAL_KEY, JSON.stringify([...revealedSet]));
+    } catch (error) {
+        console.warn(
+            "Failed to save NSFW reveal state to localStorage:",
+            error,
+        );
+    }
+};
+
 const Art = () => {
-    const [revealedItems, setRevealedItems] = useState(new Set());
+    const [revealedItems, setRevealedItems] = useState(() =>
+        loadRevealedFromStorage(),
+    );
 
     const toggleReveal = (id) => {
         const newRevealed = new Set(revealedItems);
@@ -13,6 +45,7 @@ const Art = () => {
             newRevealed.add(id);
         }
         setRevealedItems(newRevealed);
+        saveRevealedToStorage(newRevealed);
     };
 
     return (
@@ -26,13 +59,28 @@ const Art = () => {
             <h1
                 style={{
                     fontSize: "3rem",
-                    margin: "0 0 3rem 0",
+                    margin: "0 0 1rem 0",
                     color: "#f8f8ff",
                     textAlign: "center",
                 }}
             >
                 My Art
             </h1>
+
+            <p
+                style={{
+                    fontSize: "1.3rem",
+                    margin: "0 0 3rem 0",
+                    color: "#f8f8ff",
+                    textAlign: "center",
+                    opacity: 0.9,
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                }}
+            >
+                A collection of my drawings and sketches, all made with charcoal
+                and graphite.
+            </p>
 
             <div
                 style={{
@@ -45,7 +93,7 @@ const Art = () => {
                 {artworks.map((artwork) => (
                     <div key={artwork.id} style={{ position: "relative" }}>
                         <Link
-                            to={`/art/${artwork.id}`}
+                            to={`/art/${artwork.slug}`}
                             style={{ textDecoration: "none", display: "block" }}
                         >
                             <div
