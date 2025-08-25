@@ -123,12 +123,15 @@ const ProjectDetail = () => {
                         src={project.image}
                         alt={project.title}
                         style={{
-                            maxWidth: "100%",
+                            width: "100%",
+                            maxWidth: "600px",
                             height: "auto",
-                            objectFit: "unset",
+                            objectFit: "cover",
                             borderRadius: "12px",
                             marginBottom: "2rem",
                             backgroundColor: "#5d7fa3",
+                            display: "block",
+                            margin: "0 auto 2rem auto",
                         }}
                         onError={(e) => {
                             e.target.style.backgroundColor = "#5d7fa3";

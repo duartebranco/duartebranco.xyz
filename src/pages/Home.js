@@ -34,7 +34,7 @@ const Home = () => {
                     opacity: 0.9,
                 }}
             >
-                Computer Science Student
+                Computer Science and Engineering Student
             </p>
 
             {/* Contact Info */}
