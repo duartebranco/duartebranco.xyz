@@ -111,6 +111,17 @@ const ProjectDetail = () => {
                     backgroundColor: "#6b8fb2",
                     borderRadius: "8px",
                     fontSize: "1rem",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+                    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                    cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                    e.target.style.transform = "translateY(-2px)";
+                    e.target.style.boxShadow = "0 4px 16px rgba(0,0,0,0.3)";
+                }}
+                onMouseLeave={(e) => {
+                    e.target.style.transform = "translateY(0)";
+                    e.target.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
                 }}
             >
                 ← Back to Projects
@@ -197,6 +208,7 @@ const ProjectDetail = () => {
                             style={{
                                 margin: "0 0 1rem 0",
                                 color: "#f8f8ff",
+                                fontSize: "1.3rem",
                             }}
                         >
                             Features
@@ -211,7 +223,10 @@ const ProjectDetail = () => {
                             {project.features.map((feature, index) => (
                                 <li
                                     key={index}
-                                    style={{ marginBottom: "0.5rem" }}
+                                    style={{
+                                        marginBottom: "0.5rem",
+                                        fontSize: "1.2rem",
+                                    }}
                                 >
                                     {feature}
                                 </li>
@@ -233,6 +248,7 @@ const ProjectDetail = () => {
                             style={{
                                 margin: "0 0 1rem 0",
                                 color: "#f8f8ff",
+                                fontSize: "1.3rem",
                             }}
                         >
                             Tech Used
@@ -247,7 +263,10 @@ const ProjectDetail = () => {
                             {project.stack.map((feature, index) => (
                                 <li
                                     key={index}
-                                    style={{ marginBottom: "0.5rem" }}
+                                    style={{
+                                        marginBottom: "0.5rem",
+                                        fontSize: "1.2rem",
+                                    }}
                                 >
                                     {feature}
                                 </li>

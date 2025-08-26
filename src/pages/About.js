@@ -29,27 +29,27 @@ const About = () => {
                         textAlign: "left",
                     }}
                 >
-                    <p style={{ marginBottom: "1.5rem" }}>
+                    <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
                         Hi there! I'm Duarte, a passionate creative developer
                         who loves bringing his ideas to life through code.
                     </p>
 
-                    <p style={{ marginBottom: "1.5rem" }}>
+                    <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
                         I'm 19 years old, from Aveiro, Portugal, and I'm
                         currently taking my Bachelor's degree in Computer
                         Science at the University of Aveiro.
                     </p>
 
-                    <p style={{ marginBottom: "1.5rem" }}>
+                    <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
                         This is my personal website where I share my projects,
                         artwork, and, hopefully, more things in the near future.
                         I decided to make this website after getting a domain
                         name as a gift from Hack Club High Seas.
                     </p>
 
-                    <p style={{ marginBottom: "1.5rem" }}>
+                    <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
                         When I'm not coding, you'll find me sketching, playing
-                        chess or trainning Martial Arts.
+                        chess or training Martial Arts.
                     </p>
 
                     <div

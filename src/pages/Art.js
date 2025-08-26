@@ -69,7 +69,7 @@ const Art = () => {
 
             <p
                 style={{
-                    fontSize: "1.3rem",
+                    fontSize: "1.4rem",
                     margin: "0 0 3rem 0",
                     color: "#f8f8ff",
                     textAlign: "center",
@@ -126,7 +126,7 @@ const Art = () => {
                                         alt={artwork.title}
                                         style={{
                                             width: "100%",
-                                            height: "250px",
+                                            height: "350px",
                                             objectFit: "cover",
                                             backgroundColor: "#5d7fa3",
                                         }}
@@ -186,7 +186,7 @@ const Art = () => {
                                         style={{
                                             margin: "0 0 0.5rem 0",
                                             color: "#f8f8ff",
-                                            fontSize: "1.3rem",
+                                            fontSize: "1.5rem",
                                         }}
                                     >
                                         {artwork.title}
@@ -197,7 +197,7 @@ const Art = () => {
                                             margin: "0 0 1rem 0",
                                             color: "#f8f8ff",
                                             opacity: 0.9,
-                                            fontSize: "0.95rem",
+                                            fontSize: "1.2rem",
                                         }}
                                     >
                                         {artwork.description}

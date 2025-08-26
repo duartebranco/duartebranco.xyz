@@ -103,6 +103,17 @@ const ArtDetail = () => {
                     backgroundColor: "#6b8fb2",
                     borderRadius: "8px",
                     fontSize: "1rem",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+                    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                    cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                    e.target.style.transform = "translateY(-2px)";
+                    e.target.style.boxShadow = "0 4px 16px rgba(0,0,0,0.3)";
+                }}
+                onMouseLeave={(e) => {
+                    e.target.style.transform = "translateY(0)";
+                    e.target.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
                 }}
             >
                 ← Back to Gallery
@@ -182,6 +193,7 @@ const ArtDetail = () => {
                 >
                     <span
                         style={{
+                            fontSize: "1.2rem",
                             color: "#f8f8ff",
                             opacity: 0.8,
                         }}
@@ -192,7 +204,7 @@ const ArtDetail = () => {
 
                 <p
                     style={{
-                        fontSize: "1.2rem",
+                        fontSize: "1.4rem",
                         lineHeight: "1.6",
                         color: "#f8f8ff",
                         marginBottom: "2rem",
