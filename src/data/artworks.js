@@ -24,7 +24,8 @@ export const artworks = [
         slug: "father-portrait",
         title: "My Father Portrait",
         description: "A portrait of my father",
-        fullDescription: "A portrait of my father.",
+        fullDescription:
+            "A portrait of my [father](https://www.ua.pt/pt/cllc/page/24840).",
         date: "2022",
         image: "/images/drawings/pai.jpg",
         isNSFW: false,

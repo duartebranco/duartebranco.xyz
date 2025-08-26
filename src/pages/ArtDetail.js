@@ -2,6 +2,74 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { artworks } from "../data/artworks";
 
+// Helper function to render text with bold formatting and links
+const renderFormattedText = (text) => {
+    // First, split by bold patterns
+    const boldParts = text.split(/(\*\*.*?\*\*)/g);
+
+    return boldParts.map((boldPart, boldIndex) => {
+        if (boldPart.startsWith("**") && boldPart.endsWith("**")) {
+            // Handle bold text
+            const boldText = boldPart.slice(2, -2);
+
+            // Check if the bold text contains links
+            const linkParts = boldText.split(/(\[.*?\]\(.*?\))/g);
+            return (
+                <strong
+                    key={boldIndex}
+                    style={{
+                        color: "#2B6CB0",
+                    }}
+                >
+                    {linkParts.map((linkPart, linkIndex) => {
+                        const linkMatch = linkPart.match(/\[(.*?)\]\((.*?)\)/);
+                        if (linkMatch) {
+                            return (
+                                <a
+                                    key={linkIndex}
+                                    href={linkMatch[2]}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                        color: "#2B6CB0",
+                                        textDecoration: "underline",
+                                    }}
+                                >
+                                    {linkMatch[1]}
+                                </a>
+                            );
+                        }
+                        return linkPart;
+                    })}
+                </strong>
+            );
+        } else {
+            // Handle regular text (may contain links)
+            const linkParts = boldPart.split(/(\[.*?\]\(.*?\))/g);
+            return linkParts.map((linkPart, linkIndex) => {
+                const linkMatch = linkPart.match(/\[(.*?)\]\((.*?)\)/);
+                if (linkMatch) {
+                    return (
+                        <a
+                            key={`${boldIndex}-${linkIndex}`}
+                            href={linkMatch[2]}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                color: "#2B6CB0",
+                                textDecoration: "underline",
+                            }}
+                        >
+                            {linkMatch[1]}
+                        </a>
+                    );
+                }
+                return linkPart;
+            });
+        }
+    });
+};
+
 // Helper function to check localStorage for reveal state
 const NSFW_REVEAL_KEY = "artworkNSFWRevealState";
 
@@ -210,7 +278,7 @@ const ArtDetail = () => {
                         marginBottom: "2rem",
                     }}
                 >
-                    {artwork.fullDescription}
+                    {renderFormattedText(artwork.fullDescription)}
                 </p>
             </div>
         </div>
