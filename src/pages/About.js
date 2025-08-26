@@ -30,28 +30,26 @@ const About = () => {
                     }}
                 >
                     <p style={{ marginBottom: "1.5rem" }}>
-                        Hi there! I'm Alex, a passionate creative developer and
-                        digital artist who loves bringing ideas to life through
-                        code and visual design. With over 5 years of experience
-                        in web development and a deep appreciation for clean,
-                        minimal aesthetics, I create digital experiences that
-                        are both functional and beautiful.
+                        Hi there! I'm Duarte, a passionate creative developer
+                        who loves bringing his ideas to life through code.
                     </p>
 
                     <p style={{ marginBottom: "1.5rem" }}>
-                        When I'm not coding, you'll find me sketching,
-                        experimenting with digital art, or exploring new
-                        creative techniques. I believe that the intersection of
-                        technology and creativity is where the most innovative
-                        solutions emerge.
+                        I'm 19 years old, from Aveiro, Portugal, and I'm
+                        currently taking my Bachelor's degree in Computer
+                        Science at the University of Aveiro.
                     </p>
 
-                    <p style={{ marginBottom: "2rem" }}>
-                        I specialize in React development, UI/UX design, and
-                        digital illustration. My work focuses on creating fast,
-                        accessible, and user-friendly applications that solve
-                        real problems while maintaining a strong visual
-                        identity.
+                    <p style={{ marginBottom: "1.5rem" }}>
+                        This is my personal website where I share my projects,
+                        artwork, and, hopefully, more things in the near future.
+                        I decided to make this website after getting a domain
+                        name as a gift from Hack Club High Seas.
+                    </p>
+
+                    <p style={{ marginBottom: "1.5rem" }}>
+                        When I'm not coding, you'll find me sketching, playing
+                        chess or trainning Martial Arts.
                     </p>
 
                     <div
@@ -69,7 +67,42 @@ const About = () => {
                                 fontSize: "1.3rem",
                             }}
                         >
-                            Skills & Interests
+                            Tools and Tech I use
+                        </h3>
+                        <ul
+                            style={{
+                                margin: 0,
+                                paddingLeft: "1.5rem",
+                                color: "#f8f8ff",
+                            }}
+                        >
+                            <li>Linux (Arch and Debian-based distros)</li>
+                            <li>Vim / Neovim</li>
+                            <li>Suckless Software</li>
+                            <li>
+                                A variety of self-hosted services (OpenVPN,
+                                NextCloud, Navidrome, Plex, Syncthing, ...)
+                            </li>
+                            <li>Cryptocurrency (Monero)</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style={{
+                            backgroundColor: "#5d7fa3",
+                            padding: "1.5rem",
+                            borderRadius: "12px",
+                            marginTop: "2rem",
+                        }}
+                    >
+                        <h3
+                            style={{
+                                margin: "0 0 1rem 0",
+                                color: "#f8f8ff",
+                                fontSize: "1.3rem",
+                            }}
+                        >
+                            Technical Skills
                         </h3>
                         <ul
                             style={{
@@ -79,12 +112,47 @@ const About = () => {
                             }}
                         >
                             <li>
-                                Frontend Development (React, JavaScript, CSS)
+                                Object-oriented programming and design patterns
                             </li>
-                            <li>Digital Art & Illustration</li>
-                            <li>UI/UX Design</li>
-                            <li>Minimalist Design Philosophy</li>
-                            <li>Performance Optimization</li>
+                            <li>Version control with Git</li>
+                            <li>Data structures and algorithms</li>
+                            <li>Network configuration and security</li>
+                            <li>Web development (frontend and backend)</li>
+                            <li>API development and integration</li>
+                            <li>Database design and management</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style={{
+                            backgroundColor: "#5d7fa3",
+                            padding: "1.5rem",
+                            borderRadius: "12px",
+                            marginTop: "2rem",
+                        }}
+                    >
+                        <h3
+                            style={{
+                                margin: "0 0 1rem 0",
+                                color: "#f8f8ff",
+                                fontSize: "1.3rem",
+                            }}
+                        >
+                            Programming Languages
+                        </h3>
+                        <ul
+                            style={{
+                                margin: 0,
+                                paddingLeft: "1.5rem",
+                                color: "#f8f8ff",
+                            }}
+                        >
+                            <li>C / C++</li>
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>Java</li>
+                            <li>Bash</li>
+                            <li>Assembly (MIPS)</li>
                         </ul>
                     </div>
                 </div>
