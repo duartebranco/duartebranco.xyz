@@ -44,7 +44,17 @@ const About = () => {
                         This is my personal website where I share my projects,
                         artwork, and, hopefully, more things in the near future.
                         I decided to make this website after getting a domain
-                        name as a gift from Hack Club High Seas.
+                        name as a gift from{" "}
+                        <a
+                            href="https://highseas.hackclub.com/"
+                            style={{
+                                color: "#2B6CB0",
+                                textDecoration: "underline",
+                            }}
+                        >
+                            Hack Club High Seas
+                        </a>
+                        .
                     </p>
 
                     <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
@@ -78,12 +88,34 @@ const About = () => {
                         >
                             <li>Linux (Arch and Debian-based distros)</li>
                             <li>Vim / Neovim</li>
-                            <li>Suckless Software</li>
+                            <li>
+                                <a
+                                    href="https://suckless.org/"
+                                    style={{
+                                        color: "#2B6CB0",
+                                        textDecoration: "underline",
+                                    }}
+                                >
+                                    Suckless Software
+                                </a>
+                            </li>
                             <li>
                                 A variety of self-hosted services (OpenVPN,
                                 NextCloud, Navidrome, Plex, Syncthing, ...)
                             </li>
-                            <li>Cryptocurrency (Monero)</li>
+                            <li>
+                                Cryptocurrency (I only use{" "}
+                                <a
+                                    href="https://suckless.org/"
+                                    style={{
+                                        color: "#2B6CB0",
+                                        textDecoration: "underline",
+                                    }}
+                                >
+                                    Monero
+                                </a>
+                                )
+                            </li>
                         </ul>
                     </div>
 
