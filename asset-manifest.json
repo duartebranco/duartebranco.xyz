@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/duartebranco.xyz/static/css/main.89960c0d.css",
-    "main.js": "/duartebranco.xyz/static/js/main.8b1fbd0e.js",
-    "static/media/SymbolsNerdFont-Regular.ttf": "/duartebranco.xyz/static/media/SymbolsNerdFont-Regular.fde1ea69c70a9456be55.ttf",
-    "index.html": "/duartebranco.xyz/index.html",
-    "main.89960c0d.css.map": "/duartebranco.xyz/static/css/main.89960c0d.css.map",
-    "main.8b1fbd0e.js.map": "/duartebranco.xyz/static/js/main.8b1fbd0e.js.map"
+    "main.css": "/static/css/main.cdbc6785.css",
+    "main.js": "/static/js/main.8b1fbd0e.js",
+    "static/media/SymbolsNerdFont-Regular.ttf": "/static/media/SymbolsNerdFont-Regular.fde1ea69c70a9456be55.ttf",
+    "index.html": "/index.html",
+    "main.cdbc6785.css.map": "/static/css/main.cdbc6785.css.map",
+    "main.8b1fbd0e.js.map": "/static/js/main.8b1fbd0e.js.map"
   },
   "entrypoints": [
-    "static/css/main.89960c0d.css",
+    "static/css/main.cdbc6785.css",
     "static/js/main.8b1fbd0e.js"
   ]
 }
