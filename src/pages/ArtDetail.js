@@ -70,15 +70,15 @@ const renderFormattedText = (text) => {
     });
 };
 
-// Helper function to check localStorage for reveal state
+// Helper function for localStorage management
 const NSFW_REVEAL_KEY = "artworkNSFWRevealState";
 
-const isRevealedInStorage = (artworkId) => {
+const loadRevealedFromStorage = () => {
     try {
         const stored = localStorage.getItem(NSFW_REVEAL_KEY);
         if (stored) {
-            const revealed = JSON.parse(stored);
-            return revealed.includes(artworkId);
+            const parsed = JSON.parse(stored);
+            return new Set(parsed);
         }
     } catch (error) {
         console.warn(
@@ -86,21 +86,12 @@ const isRevealedInStorage = (artworkId) => {
             error,
         );
     }
-    return false;
+    return new Set();
 };
 
-const saveRevealStateToStorage = (artworkId, isRevealed) => {
+const saveRevealedToStorage = (revealedSet) => {
     try {
-        const stored = localStorage.getItem(NSFW_REVEAL_KEY);
-        let revealed = stored ? JSON.parse(stored) : [];
-
-        if (isRevealed && !revealed.includes(artworkId)) {
-            revealed.push(artworkId);
-        } else if (!isRevealed && revealed.includes(artworkId)) {
-            revealed = revealed.filter((id) => id !== artworkId);
-        }
-
-        localStorage.setItem(NSFW_REVEAL_KEY, JSON.stringify(revealed));
+        localStorage.setItem(NSFW_REVEAL_KEY, JSON.stringify([...revealedSet]));
     } catch (error) {
         console.warn(
             "Failed to save NSFW reveal state to localStorage:",
@@ -109,23 +100,37 @@ const saveRevealStateToStorage = (artworkId, isRevealed) => {
     }
 };
 
+const clearNSFWStorage = () => {
+    try {
+        localStorage.removeItem(NSFW_REVEAL_KEY);
+    } catch (error) {
+        console.warn("Failed to clear NSFW reveal state from localStorage:", error);
+    }
+};
+
 const ArtDetail = () => {
     const { slug } = useParams();
     const artwork = artworks.find((a) => a.slug === slug);
 
-    // Initialize reveal state from localStorage if NSFW, or true if not NSFW
-    const [isRevealed, setIsRevealed] = useState(() => {
-        if (!artwork?.isNSFW) return true;
-        return isRevealedInStorage(artwork.id);
-    });
+    // Load reveal state from localStorage, preserving gallery state
+    const [revealedItems, setRevealedItems] = useState(() => loadRevealedFromStorage());
 
-    // Update reveal state and save to localStorage
+    // Check if this specific artwork is revealed
+    const isRevealed = !artwork?.isNSFW || revealedItems.has(artwork?.id);
+
+    // Update reveal state (only reveal, no hide)
     const toggleReveal = () => {
-        const newRevealState = !isRevealed;
-        setIsRevealed(newRevealState);
         if (artwork) {
-            saveRevealStateToStorage(artwork.id, newRevealState);
+            const newRevealed = new Set(revealedItems);
+            newRevealed.add(artwork.id);
+            setRevealedItems(newRevealed);
+            saveRevealedToStorage(newRevealed);
         }
+    };
+
+    // Handle back button click - clear localStorage
+    const handleBackClick = () => {
+        clearNSFWStorage();
     };
 
     // Scroll to top when component mounts
@@ -154,6 +159,7 @@ const ArtDetail = () => {
             {/* Back button */}
             <Link
                 to="/art"
+                onClick={handleBackClick}
                 style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -208,26 +214,57 @@ const ArtDetail = () => {
                         }}
                     />
 
-                    {/* NSFW Toggle */}
-                    {artwork.isNSFW && (
-                        <button
-                            onClick={toggleReveal}
+                    {/* NSFW Toggle - Only show when not revealed */}
+                    {artwork.isNSFW && !isRevealed && (
+                        <div
                             style={{
                                 position: "absolute",
-                                top: "1rem",
-                                right: "1rem",
-                                backgroundColor: "rgba(130, 156, 186, 0.9)",
-                                color: "#f8f8ff",
-                                border: "none",
-                                padding: "0.8rem 1.5rem",
-                                borderRadius: "20px",
-                                fontSize: "1rem",
-                                cursor: "pointer",
-                                backdropFilter: "blur(10px)",
+                                top: "50%",
+                                left: "50%",
+                                transform: "translate(-50%, -50%)",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                gap: "0.5rem",
                             }}
                         >
-                            {isRevealed ? " Hide" : " View"}
-                        </button>
+                            <span
+                                style={{
+                                    color: "rgba(130, 156, 186, 0.95)",
+                                    fontSize: "1.6rem",
+                                    fontWeight: "600",
+                                    textShadow: "0 2px 4px rgba(0,0,0,0.4)",
+                                }}
+                            >
+                                NSFW
+                            </span>
+                            <button
+                                onClick={toggleReveal}
+                                style={{
+                                    backgroundColor: "rgba(130, 156, 186, 0.95)",
+                                    color: "#f8f8ff",
+                                    border: "none",
+                                    padding: "1.2rem 2.5rem",
+                                    borderRadius: "30px",
+                                    fontSize: "1.2rem",
+                                    fontWeight: "600",
+                                    cursor: "pointer",
+                                    backdropFilter: "blur(10px)",
+                                    boxShadow: "0 6px 20px rgba(0,0,0,0.4)",
+                                    transition: "all 0.2s ease",
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.target.style.backgroundColor = "rgba(130, 156, 186, 1)";
+                                    e.target.style.transform = "scale(1.05)";
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.target.style.backgroundColor = "rgba(130, 156, 186, 0.95)";
+                                    e.target.style.transform = "scale(1)";
+                                }}
+                            >
+                                View
+                            </button>
+                        </div>
                     )}
                 </div>
 

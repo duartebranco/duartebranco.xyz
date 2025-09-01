@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { artworks } from "../data/artworks";
 
@@ -32,18 +32,34 @@ const saveRevealedToStorage = (revealedSet) => {
     }
 };
 
+const clearNSFWStorage = () => {
+    try {
+        localStorage.removeItem(NSFW_REVEAL_KEY);
+    } catch (error) {
+        console.warn("Failed to clear NSFW reveal state from localStorage:", error);
+    }
+};
+
 const Art = () => {
-    const [revealedItems, setRevealedItems] = useState(() =>
-        loadRevealedFromStorage(),
-    );
+    const [revealedItems, setRevealedItems] = useState(() => loadRevealedFromStorage());
+
+    // Clear localStorage only on page reload (not on navigation)
+    useEffect(() => {
+        // Check if this is a page reload by checking if performance.navigation.type exists
+        // or use performance.getEntriesByType for newer browsers
+        const isPageReload = window.performance &&
+            (window.performance.getEntriesByType('navigation')[0]?.type === 'reload' ||
+             window.performance.navigation?.type === 1);
+
+        if (isPageReload) {
+            clearNSFWStorage();
+            setRevealedItems(new Set());
+        }
+    }, []);
 
     const toggleReveal = (id) => {
         const newRevealed = new Set(revealedItems);
-        if (newRevealed.has(id)) {
-            newRevealed.delete(id);
-        } else {
-            newRevealed.add(id);
-        }
+        newRevealed.add(id); // Only add, never remove (no hide functionality)
         setRevealedItems(newRevealed);
         saveRevealedToStorage(newRevealed);
     };
@@ -150,33 +166,61 @@ const Art = () => {
                                         }}
                                     />
 
-                                    {/* NSFW Toggle */}
-                                    {artwork.isNSFW && (
-                                        <button
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                e.stopPropagation();
-                                                toggleReveal(artwork.id);
-                                            }}
+                                    {/* NSFW Toggle - Only show when not revealed */}
+                                    {artwork.isNSFW && !revealedItems.has(artwork.id) && (
+                                        <div
                                             style={{
                                                 position: "absolute",
-                                                top: "1rem",
-                                                right: "1rem",
-                                                backgroundColor:
-                                                    "rgba(130, 156, 186, 0.9)",
-                                                color: "#f8f8ff",
-                                                border: "none",
-                                                padding: "0.5rem 1rem",
-                                                borderRadius: "20px",
-                                                fontSize: "0.9rem",
-                                                cursor: "pointer",
-                                                backdropFilter: "blur(10px)",
+                                                top: "50%",
+                                                left: "50%",
+                                                transform: "translate(-50%, -50%)",
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                alignItems: "center",
+                                                gap: "0.5rem",
                                             }}
                                         >
-                                            {revealedItems.has(artwork.id)
-                                                ? " Hide"
-                                                : " View"}
-                                        </button>
+                                            <span
+                                                style={{
+                                                    color: "rgba(130, 156, 186, 0.95)",
+                                                    fontSize: "1.4rem",
+                                                    fontWeight: "600",
+                                                }}
+                                            >
+                                                NSFW
+                                            </span>
+                                            <button
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    e.stopPropagation();
+                                                    toggleReveal(artwork.id);
+                                                }}
+                                                style={{
+                                                    backgroundColor:
+                                                        "rgba(130, 156, 186, 0.95)",
+                                                    color: "#f8f8ff",
+                                                    border: "none",
+                                                    padding: "1rem 2rem",
+                                                    borderRadius: "25px",
+                                                    fontSize: "1.1rem",
+                                                    fontWeight: "600",
+                                                    cursor: "pointer",
+                                                    backdropFilter: "blur(10px)",
+                                                    boxShadow: "0 4px 16px rgba(0,0,0,0.3)",
+                                                    transition: "all 0.2s ease",
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.target.style.backgroundColor = "rgba(130, 156, 186, 1)";
+                                                    e.target.style.transform = "scale(1.05)";
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.target.style.backgroundColor = "rgba(130, 156, 186, 0.95)";
+                                                    e.target.style.transform = "scale(1)";
+                                                }}
+                                            >
+                                                View
+                                            </button>
+                                        </div>
                                     )}
                                 </div>
 
