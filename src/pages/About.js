@@ -13,14 +13,7 @@ const About = () => {
             >
                 About Me
             </h1>
-            <div
-                style={{
-                    backgroundColor: "#6b8fb2",
-                    padding: "3rem",
-                    borderRadius: "16px",
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
-                }}
-            >
+            <div className="about-container-inside">
                 <div
                     style={{
                         fontSize: "1.2rem",
@@ -30,21 +23,24 @@ const About = () => {
                     }}
                 >
                     <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
-                        Hi there! I'm Duarte, a passionate creative developer
-                        who loves bringing his ideas to life through code.
+                        Hi there! I'm <strong>Duarte</strong>, a{" "}
+                        <strong>passionate creative developer</strong> who loves
+                        bringing his ideas to life through code!
                     </p>
 
                     <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
-                        I'm 19 years old, from Aveiro, Portugal, and I'm
-                        currently taking my Bachelor's degree in Computer
-                        Science at the University of Aveiro.
+                        I'm <strong>19 years old</strong>, from{" "}
+                        <strong>Aveiro, Portugal</strong>, and I'm currently
+                        taking my Bachelor's degree in{" "}
+                        <strong>Computer Science and Engineering</strong> at the{" "}
+                        <strong>University of Aveiro</strong>.
                     </p>
 
                     <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
-                        This is my personal website where I share my projects,
-                        artwork, and, hopefully, more things in the near future.
-                        I decided to make this website after getting a domain
-                        name as a gift from{" "}
+                        This is my <strong>personal website</strong> where I
+                        share my projects, artwork, and, hopefully, more things
+                        in the near future. I decided to make this website after
+                        getting a domain name as a gift from{" "}
                         <a
                             href="https://highseas.hackclub.com/"
                             style={{
@@ -58,8 +54,10 @@ const About = () => {
                     </p>
 
                     <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
-                        When I'm not coding, you'll find me sketching, playing
-                        chess or training Martial Arts.
+                        When I'm not coding, you'll find me{" "}
+                        <strong>sketching</strong>,{" "}
+                        <strong>playing chess</strong> or training{" "}
+                        <strong>Martial Arts</strong>.
                     </p>
 
                     <div
@@ -87,7 +85,9 @@ const About = () => {
                             }}
                         >
                             <li>Linux (Arch and Debian-based distros)</li>
-                            <li>Vim / Neovim</li>
+                            <li>
+                                Vim / Neovim, anything with vim-like motions
+                            </li>
                             <li>
                                 <a
                                     href="https://suckless.org/"

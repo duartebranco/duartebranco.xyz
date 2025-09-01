@@ -150,13 +150,7 @@ const ArtDetail = () => {
     }
 
     return (
-        <div
-            style={{
-                padding: "2rem",
-                maxWidth: "900px",
-                margin: "0 auto",
-            }}
-        >
+        <div className="art-details-container">
             {/* Back button */}
             <Link
                 to="/art"
@@ -187,14 +181,7 @@ const ArtDetail = () => {
                 ← Back to Gallery
             </Link>
 
-            <div
-                style={{
-                    backgroundColor: "#6b8fb2",
-                    padding: "3rem",
-                    borderRadius: "16px",
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
-                }}
-            >
+            <div className="art-details-inside">
                 {/* Art Image */}
                 <div style={{ position: "relative", marginBottom: "2rem" }}>
                     <img
