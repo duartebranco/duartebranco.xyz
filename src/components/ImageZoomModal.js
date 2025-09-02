@@ -88,7 +88,7 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
             >
                 <TransformWrapper
                     initialScale={1}
-                    minScale={0.3}
+                    minScale={0.7}
                     maxScale={6}
                     wheel={{
                         step: 0.15,
