@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { artworks } from "../data/artworks";
+import ImageZoomModal from "../components/ImageZoomModal";
 
 // Helper function to render text with bold formatting and links
 const renderFormattedText = (text) => {
@@ -114,6 +115,9 @@ const ArtDetail = () => {
 
     // Load reveal state from localStorage, preserving gallery state
     const [revealedItems, setRevealedItems] = useState(() => loadRevealedFromStorage());
+    
+    // Modal state for zoom
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Check if this specific artwork is revealed
     const isRevealed = !artwork?.isNSFW || revealedItems.has(artwork?.id);
@@ -131,6 +135,18 @@ const ArtDetail = () => {
     // Handle back button click - clear localStorage
     const handleBackClick = () => {
         clearNSFWStorage();
+    };
+
+    // Handle image click to open modal
+    const handleImageClick = () => {
+        if (isRevealed) {
+            setIsModalOpen(true);
+        }
+    };
+
+    // Handle modal close
+    const handleModalClose = () => {
+        setIsModalOpen(false);
     };
 
     // Scroll to top when component mounts
@@ -188,21 +204,34 @@ const ArtDetail = () => {
             </Link>
 
             <div className="art-details-inside">
-                {/* Art Image */}
+                {/* Art Image - Click to open modal */}
                 <div style={{ position: "relative", marginBottom: "2rem" }}>
                     <img
                         src={artwork.image}
                         alt={artwork.title}
+                        onClick={handleImageClick}
                         style={{
                             maxWidth: "100%",
                             height: "auto",
                             objectFit: "unset",
                             borderRadius: "12px",
                             backgroundColor: "#5d7fa3",
+                            cursor: isRevealed ? "pointer" : "default",
+                            transition: "transform 0.2s ease",
                         }}
                         className={
                             artwork.isNSFW && !isRevealed ? "nsfw-blur" : ""
                         }
+                        onMouseEnter={(e) => {
+                            if (isRevealed) {
+                                e.target.style.transform = "scale(1.02)";
+                            }
+                        }}
+                        onMouseLeave={(e) => {
+                            if (isRevealed) {
+                                e.target.style.transform = "scale(1)";
+                            }
+                        }}
                         onError={(e) => {
                             e.target.style.backgroundColor = "#5d7fa3";
                             e.target.style.color = "#f8f8ff";
@@ -213,6 +242,28 @@ const ArtDetail = () => {
                             e.target.innerHTML = "";
                         }}
                     />
+
+                    {/* Click to zoom indicator */}
+                    {isRevealed && (
+                        <div
+                            style={{
+                                position: "absolute",
+                                bottom: "12px",
+                                right: "12px",
+                                backgroundColor: "rgba(0, 0, 0, 0.7)",
+                                color: "#f8f8ff",
+                                padding: "6px 12px",
+                                borderRadius: "20px",
+                                fontSize: "0.85rem",
+                                fontWeight: "500",
+                                opacity: 0.8,
+                                pointerEvents: "none",
+                                transition: "opacity 0.2s ease",
+                            }}
+                        >
+                            🔍 Click to zoom
+                        </div>
+                    )}
 
                     {/* NSFW Toggle - Only show when not revealed */}
                     {artwork.isNSFW && !isRevealed && (
@@ -226,6 +277,7 @@ const ArtDetail = () => {
                                 flexDirection: "column",
                                 alignItems: "center",
                                 gap: "0.5rem",
+                                zIndex: 20,
                             }}
                         >
                             <span
@@ -267,6 +319,14 @@ const ArtDetail = () => {
                         </div>
                     )}
                 </div>
+
+                {/* Zoom Modal */}
+                <ImageZoomModal 
+                    isOpen={isModalOpen}
+                    onClose={handleModalClose}
+                    imageUrl={artwork.image}
+                    imageAlt={artwork.title}
+                />
 
                 <h1
                     style={{
