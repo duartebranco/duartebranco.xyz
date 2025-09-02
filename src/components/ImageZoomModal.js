@@ -33,18 +33,12 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                backgroundColor: "rgba(0, 0, 0, 0.95)",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
                 zIndex: 1000,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 padding: "0",
-            }}
-            onClick={(e) => {
-                // Only close if clicking directly on the backdrop
-                if (e.target === e.currentTarget) {
-                    onClose();
-                }
             }}
         >
             {/* Close button */}
@@ -54,9 +48,9 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                     position: "absolute",
                     top: "20px",
                     right: "20px",
-                    backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    color: "#f8f8ff",
-                    border: "2px solid rgba(255, 255, 255, 0.3)",
+                    backgroundColor: "rgba(255, 255, 255, 0.8)",
+                    color: "#2c3e50",
+                    border: "2px solid rgba(255, 255, 255, 0.9)",
                     width: "50px",
                     height: "50px",
                     borderRadius: "50%",
@@ -70,11 +64,11 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                     zIndex: 1001,
                 }}
                 onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+                    e.target.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
                     e.target.style.transform = "scale(1.1)";
                 }}
                 onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+                    e.target.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
                     e.target.style.transform = "scale(1)";
                 }}
             >
@@ -95,7 +89,7 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                 <TransformWrapper
                     initialScale={1}
                     minScale={0.3}
-                    maxScale={8}
+                    maxScale={6}
                     wheel={{
                         step: 0.15,
                         smoothStep: 0.005,
@@ -114,7 +108,7 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                         step: 0.6,
                         mode: "zoomIn"
                     }}
-                    limitToBounds={false}
+                    limitToBounds={true}
                     centerOnInit={true}
                 >
                     {({ zoomIn, zoomOut, resetTransform }) => (
@@ -137,9 +131,9 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                                         zoomIn();
                                     }}
                                     style={{
-                                        backgroundColor: "rgba(255, 255, 255, 0.2)",
-                                        color: "#f8f8ff",
-                                        border: "2px solid rgba(255, 255, 255, 0.3)",
+                                        backgroundColor: "rgba(255, 255, 255, 0.8)",
+                                        color: "#2c3e50",
+                                        border: "2px solid rgba(255, 255, 255, 0.9)",
                                         width: "50px",
                                         height: "50px",
                                         borderRadius: "50%",
@@ -152,11 +146,11 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                                         transition: "all 0.2s ease",
                                     }}
                                     onMouseEnter={(e) => {
-                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
                                         e.target.style.transform = "scale(1.1)";
                                     }}
                                     onMouseLeave={(e) => {
-                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
                                         e.target.style.transform = "scale(1)";
                                     }}
                                 >
@@ -168,9 +162,9 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                                         zoomOut();
                                     }}
                                     style={{
-                                        backgroundColor: "rgba(255, 255, 255, 0.2)",
-                                        color: "#f8f8ff",
-                                        border: "2px solid rgba(255, 255, 255, 0.3)",
+                                        backgroundColor: "rgba(255, 255, 255, 0.8)",
+                                        color: "#2c3e50",
+                                        border: "2px solid rgba(255, 255, 255, 0.9)",
                                         width: "50px",
                                         height: "50px",
                                         borderRadius: "50%",
@@ -183,11 +177,11 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                                         transition: "all 0.2s ease",
                                     }}
                                     onMouseEnter={(e) => {
-                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
                                         e.target.style.transform = "scale(1.1)";
                                     }}
                                     onMouseLeave={(e) => {
-                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
                                         e.target.style.transform = "scale(1)";
                                     }}
                                 >
@@ -199,9 +193,9 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                                         resetTransform();
                                     }}
                                     style={{
-                                        backgroundColor: "rgba(255, 255, 255, 0.2)",
-                                        color: "#f8f8ff",
-                                        border: "2px solid rgba(255, 255, 255, 0.3)",
+                                        backgroundColor: "rgba(255, 255, 255, 0.8)",
+                                        color: "#2c3e50",
+                                        border: "2px solid rgba(255, 255, 255, 0.9)",
                                         width: "50px",
                                         height: "50px",
                                         borderRadius: "50%",
@@ -214,11 +208,11 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                                         transition: "all 0.2s ease",
                                     }}
                                     onMouseEnter={(e) => {
-                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
                                         e.target.style.transform = "scale(1.1)";
                                     }}
                                     onMouseLeave={(e) => {
-                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+                                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
                                         e.target.style.transform = "scale(1)";
                                     }}
                                 >
