@@ -23,24 +23,24 @@ const About = () => {
                     }}
                 >
                     <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
-                        Hi there! I'm <strong>Duarte</strong>, a{" "}
-                        <strong>passionate creative developer</strong> who loves
+                        Hi there! I'm <strong>Duarte</strong>, a
+                        passionate creative developer who loves
                         bringing his ideas to life through code!
                     </p>
 
                     <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
-                        I'm <strong>19 years old</strong>, from{" "}
-                        <strong>Aveiro, Portugal</strong>, and I'm currently
-                        taking my Bachelor's degree in{" "}
-                        <strong>Computer Science and Engineering</strong> at the{" "}
-                        <strong>University of Aveiro</strong>.
+                        I'm 19 years old, from
+                        Aveiro, Portugal, and I'm currently
+                        pursuing my Bachelor's degree in{" "}
+                        <strong>Computer Science and Engineering</strong> at the
+                        University of Aveiro.
                     </p>
 
                     <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
                         This is my <strong>personal website</strong> where I
                         share my projects, artwork, and, hopefully, more things
                         in the near future. I decided to make this website after
-                        getting a domain name as a gift from{" "}
+                        receiving a domain name as a gift from{" "}
                         <a
                             href="https://highseas.hackclub.com/"
                             style={{
@@ -48,16 +48,16 @@ const About = () => {
                                 textDecoration: "underline",
                             }}
                         >
-                            Hack Club High Seas
+                            Hack Club's High Seas
                         </a>
                         .
                     </p>
 
                     <p style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>
-                        When I'm not coding, you'll find me{" "}
-                        <strong>sketching</strong>,{" "}
-                        <strong>playing chess</strong> or training{" "}
-                        <strong>Martial Arts</strong>.
+                        When I'm not coding, you'll find me
+                        sketching,
+                        playing chess or training
+                        Martial Arts.
                     </p>
 
                     <div
@@ -96,7 +96,7 @@ const About = () => {
                                         textDecoration: "underline",
                                     }}
                                 >
-                                    Suckless Software
+                                    Suckless software
                                 </a>
                             </li>
                             <li>
@@ -106,7 +106,7 @@ const About = () => {
                             <li>
                                 Cryptocurrency (I only use{" "}
                                 <a
-                                    href="https://suckless.org/"
+                                    href="https://www.getmonero.org/"
                                     style={{
                                         color: "#2B6CB0",
                                         textDecoration: "underline",
@@ -146,11 +146,9 @@ const About = () => {
                             <li>
                                 Object-oriented programming and design patterns
                             </li>
-                            <li>Version control with Git</li>
                             <li>Data structures and algorithms</li>
                             <li>Network configuration and security</li>
                             <li>Web development (frontend and backend)</li>
-                            <li>API development and integration</li>
                             <li>Database design and management</li>
                         </ul>
                     </div>
@@ -170,7 +168,7 @@ const About = () => {
                                 fontSize: "1.3rem",
                             }}
                         >
-                            Programming Languages
+                            Programming Languages I know
                         </h3>
                         <ul
                             style={{
