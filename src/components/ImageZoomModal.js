@@ -50,7 +50,7 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                     right: "20px",
                     backgroundColor: "rgba(255, 255, 255, 0.8)",
                     color: "#2c3e50",
-                    border: "2px solid rgba(255, 255, 255, 0.9)",
+                    border: "2px solid #2c3e50",
                     width: "50px",
                     height: "50px",
                     borderRadius: "50%",
@@ -133,7 +133,7 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                                     style={{
                                         backgroundColor: "rgba(255, 255, 255, 0.8)",
                                         color: "#2c3e50",
-                                        border: "2px solid rgba(255, 255, 255, 0.9)",
+                                        border: "2px solid #2c3e50",
                                         width: "50px",
                                         height: "50px",
                                         borderRadius: "50%",
@@ -164,7 +164,7 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                                     style={{
                                         backgroundColor: "rgba(255, 255, 255, 0.8)",
                                         color: "#2c3e50",
-                                        border: "2px solid rgba(255, 255, 255, 0.9)",
+                                        border: "2px solid #2c3e50",
                                         width: "50px",
                                         height: "50px",
                                         borderRadius: "50%",
@@ -195,7 +195,7 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl, imageAlt }) => {
                                     style={{
                                         backgroundColor: "rgba(255, 255, 255, 0.8)",
                                         color: "#2c3e50",
-                                        border: "2px solid rgba(255, 255, 255, 0.9)",
+                                        border: "2px solid #2c3e50",
                                         width: "50px",
                                         height: "50px",
                                         borderRadius: "50%",
